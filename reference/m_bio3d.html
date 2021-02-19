@@ -162,16 +162,32 @@
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/swsoyee/r3dmol'>r3dmol</a></span><span class='op'>)</span>
 
 <span class='co'># create bio3d object</span>
-<span class='va'>pdb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/bio3d/man/read.pdb.html'>read.pdb</a></span><span class='op'>(</span><span class='st'>"1bna"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;   Note: Accessing on-line PDB file</div><div class='output co'>#&gt; <span class='warning'>Warning: URL 'https://files.rcsb.org/download/1bna.pdb': status was 'Couldn't resolve host name'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: cannot remove file '/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//RtmpOxmU8L/1bna.pdb', reason 'No such file or directory'</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Some files could not be downloaded, check returned value</span></div><div class='output co'>#&gt; <span class='error'>Error in read.pdb("1bna"): Error in reading PDB file 1</span></div><div class='input'>
+<span class='va'>pdb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='http://thegrantlab.org/bio3d/reference/read.pdb.html'>read.pdb</a></span><span class='op'>(</span><span class='st'>"1bna"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;   Note: Accessing on-line PDB file</div><div class='input'>
 <span class='co'># inspect bio3d object</span>
 <span class='va'>pdb</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'pdb' not found</span></div><div class='input'>
+</div><div class='output co'>#&gt; 
+#&gt;  Call:  read.pdb(file = "1bna")
+#&gt; 
+#&gt;    Total Models#: 1
+#&gt;      Total Atoms#: 566,  XYZs#: 1698  Chains#: 2  (values: A B)
+#&gt; 
+#&gt;      Protein Atoms#: 0  (residues/Calpha atoms#: 0)
+#&gt;      Nucleic acid Atoms#: 486  (residues/phosphate atoms#: 24)
+#&gt; 
+#&gt;      Non-protein/nucleic Atoms#: 80  (residues: 80)
+#&gt;      Non-protein/nucleic resid values: [ HOH (80) ]
+#&gt; 
+#&gt;    Nucleic acid sequence:
+#&gt;       CGCGAATTCGCGCGCGAATTCGCG
+#&gt; 
+#&gt; + attr: atom, xyz, seqres, calpha, remark,
+#&gt;         call</div><div class='input'>
 <span class='co'># load bio3d object into r3dmol</span>
 <span class='fu'><a href='init.html'>r3dmol</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='m_add_model.html'>m_add_model</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='fu'>m_bio3d</span><span class='op'>(</span><span class='va'>pdb</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='m_zoom_to.html'>m_zoom_to</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in bio3d::write.pdb(pdb = pdb, file = temp): object 'pdb' not found</span></div></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
