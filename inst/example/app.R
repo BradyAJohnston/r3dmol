@@ -161,7 +161,7 @@ server <- function(input, output, session) {
 
   observeEvent(input$animate, {
     if (input$animate) {
-      m_animate(id = "r3dmol", list(loop = "backAndForth"))
+      m_animate(id = "r3dmol", loop = "backAndForth")
     } else {
       m_stop_animate(id = "r3dmol")
     }

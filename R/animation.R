@@ -191,7 +191,7 @@ m_zoom_to <- function(id, sel, animationDuration, fixedPath) {
 #'   m_add_model(data = xyz, format = "xyz") %>%
 #'   m_set_style(style = m_style_stick()) %>%
 #'   m_vibrate(numFrames = 10, amplitude = 1) %>%
-#'   m_animate(options = list(loop = "backAndForth", reps = 0)) %>%
+#'   m_animate(loop = "backAndForth", reps = 0) %>%
 #'   m_zoom_to()
 m_vibrate <- function(id, numFrames, amplitude, bothWays, arrowSpec) {
   method <- "vibrate"

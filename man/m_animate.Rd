@@ -4,16 +4,20 @@
 \alias{m_animate}
 \title{Animate all models in viewer from their respective frames}
 \usage{
-m_animate(id, options)
+m_animate(id, loop = "backAndForth", speed = NULL, step = NULL, reps = 0)
 }
 \arguments{
 \item{id}{R3dmol \code{id} or a \code{r3dmol} object (the output from
 \code{r3dmol()})}
 
-\item{options}{can specify \code{interval} (speed of animation), \code{loop}
-(direction of looping, \code{'backward'}, \code{'forward'} or
-\code{'backAndForth'}), step interval between frames (\code{'step'}), and
-\code{reps} (number of repetitions, \code{0} indicates infinite loop)}
+\item{loop}{direction of looping, \code{'backward'}, \code{'forward'} or
+\code{'backAndForth'}),}
+
+\item{speed}{can specify \code{interval} (speed of animation),}
+
+\item{step}{interval between frames (\code{'step'}),}
+
+\item{reps}{number of repetitions, \code{0} indicates infinite loop}
 }
 \value{
 R3dmol \code{id} or a \code{r3dmol} object (the output from
@@ -44,6 +48,6 @@ r3dmol(
     options = list(vibrate = list(frames = 10, amplitude = 1))
   ) \%>\%
   m_set_style(style = m_style_stick()) \%>\%
-  m_animate(list(loop = "backAndForth")) \%>\%
+  m_animate(loop = "backAndForth") \%>\%
   m_zoom_to()
 }

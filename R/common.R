@@ -78,10 +78,11 @@ m_center <- function(id, sel, animationDuration, fixedPath) {
 #'
 #' @param id R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()})
-#' @param options can specify \code{interval} (speed of animation), \code{loop}
-#' (direction of looping, \code{'backward'}, \code{'forward'} or
-#' \code{'backAndForth'}), step interval between frames (\code{'step'}), and
-#' \code{reps} (number of repetitions, \code{0} indicates infinite loop)
+#' @param speed can specify \code{interval} (speed of animation),
+#' @param loop direction of looping, \code{'backward'}, \code{'forward'} or
+#' \code{'backAndForth'}),
+#' @param step interval between frames (\code{'step'}),
+#' @param reps number of repetitions, \code{0} indicates infinite loop
 #'
 #' @return R3dmol \code{id} or a \code{r3dmol} object (the output from
 #' \code{r3dmol()})
@@ -109,9 +110,20 @@ m_center <- function(id, sel, animationDuration, fixedPath) {
 #'     options = list(vibrate = list(frames = 10, amplitude = 1))
 #'   ) %>%
 #'   m_set_style(style = m_style_stick()) %>%
-#'   m_animate(list(loop = "backAndForth")) %>%
+#'   m_animate(loop = "backAndForth") %>%
 #'   m_zoom_to()
-m_animate <- function(id, options) {
+m_animate <- function(
+  id,
+  loop = "backAndForth",
+  speed = NULL,
+  step = NULL,
+  reps = 0) {
+  options <- list(
+    loop = loop,
+    speed = speed,
+    step = step
+  ) %>% cleanup_nulls()
+
   method <- "animate"
   callJS()
 }
